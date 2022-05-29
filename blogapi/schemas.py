@@ -2,6 +2,7 @@ from dotenv import load_dotenv
 import motor.motor_asyncio
 import os
 from bson import ObjectId
+from pydantic import BaseModel, Field, EmailStr
 
 load_dotenv()
 
@@ -24,3 +25,22 @@ class PyObjectid(ObjectId):
     @classmethod
     def __modify_schema__(cls, field_schema):
         field_schema.update(type="string")
+
+
+class User(BaseModel):
+    id: PyObjectid = Field(default_factory=PyObjectid, alias='_id')
+    name: str = Field(...)
+    email: EmailStr = Field(...)
+    password: str = Field(...)
+
+    class Config:
+        allowed_population_by_field_name = True
+        arbitrary_type_allowed = True
+        json_encoders = {ObjectId: str}
+        schema_extra = {
+            'example': {
+                "name": "test test",
+                "email": "test@example.com",
+                "password": "password"
+            }
+        }

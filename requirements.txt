@@ -6,3 +6,4 @@ pymongo
 pymongo[srv]
 python-dotenv
 motor
+pydantic[email]
