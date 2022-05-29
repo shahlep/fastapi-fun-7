@@ -6,5 +6,3 @@ app = FastAPI(title="BlogAPI")
 
 
 app.include_router(users.router)
-
-

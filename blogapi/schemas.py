@@ -19,7 +19,7 @@ class PyObjectid(ObjectId):
     @classmethod
     def validate(cls, v):
         if not ObjectId.is_valid(v):
-            raise ValueError('Invalid ObjectID')
+            raise ValueError("Invalid ObjectID")
         return ObjectId(v)
 
     @classmethod
@@ -28,7 +28,7 @@ class PyObjectid(ObjectId):
 
 
 class User(BaseModel):
-    id: PyObjectid = Field(default_factory=PyObjectid, alias='_id')
+    id: PyObjectid = Field(default_factory=PyObjectid, alias="_id")
     name: str = Field(...)
     email: EmailStr = Field(...)
     password: str = Field(...)
@@ -38,9 +38,9 @@ class User(BaseModel):
         arbitrary_type_allowed = True
         json_encoders = {ObjectId: str}
         schema_extra = {
-            'example': {
+            "example": {
                 "name": "test test",
                 "email": "test@example.com",
-                "password": "password"
+                "password": "password",
             }
         }
