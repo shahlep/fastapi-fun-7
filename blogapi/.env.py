@@ -1,1 +1,0 @@
-MONGODB_URL=mongodb+srv://admin:XfOOsS6lWgNrf8gx@cluster0.rdrhr.mongodb.net/?retryWrites=true&w=majority
