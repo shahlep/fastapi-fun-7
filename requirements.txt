@@ -2,3 +2,6 @@ fastapi
 uvicorn
 pydantic
 black
+pymongo
+pymongo[srv]
+python-dotenv
