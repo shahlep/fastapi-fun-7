@@ -29,12 +29,12 @@ async def registration(user_info: User):
             status_code=status.HTTP_409_CONFLICT, detail="email already taken"
         )
 
-    user_info['password']=get_password_hash(user_info['password'])
+    user_info["password"] = get_password_hash(user_info["password"])
 
     # create api key
-    user_info['apiKey'] = secrets.token_hex(30)
+    user_info["apiKey"] = secrets.token_hex(30)
 
-    new_user = await db['users'].insert_one(user_info)
-    created_user = await db['users'].find_one({'_id':new_user.inserted_id})
+    new_user = await db["users"].insert_one(user_info)
+    created_user = await db["users"].find_one({"_id": new_user.inserted_id})
 
     return created_user
