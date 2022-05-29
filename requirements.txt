@@ -5,3 +5,4 @@ black
 pymongo
 pymongo[srv]
 python-dotenv
+motor
