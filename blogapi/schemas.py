@@ -44,3 +44,18 @@ class User(BaseModel):
                 "password": "password",
             }
         }
+class UserResponse(BaseModel):
+    id: PyObjectid = Field(default_factory=PyObjectid, alias="_id")
+    name: str = Field(...)
+    email: EmailStr = Field(...)
+
+    class Config:
+        allowed_population_by_field_name = True
+        arbitrary_type_allowed = True
+        json_encoders = {ObjectId: str}
+        schema_extra = {
+            "example": {
+                "name": "test test",
+                "email": "test@example.com",
+            }
+        }
