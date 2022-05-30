@@ -44,6 +44,8 @@ class User(BaseModel):
                 "password": "password",
             }
         }
+
+
 class UserResponse(BaseModel):
     id: PyObjectid = Field(default_factory=PyObjectid, alias="_id")
     name: str = Field(...)

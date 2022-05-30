@@ -12,7 +12,7 @@ def index():
     pass
 
 
-@router.post("/registration",response_model=UserResponse)
+@router.post("/registration", response_model=UserResponse)
 async def registration(user_info: User):
     user_info = jsonable_encoder(user_info)
 
